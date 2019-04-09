@@ -1,0 +1,24 @@
+{{template "header" .}}
+<main>
+    <span class="fr">
+        <a href="/{{.Domain}}">Back</a>
+        <br>{{ if .SignedIn}}
+        <a href='/{{.Domain}}/{{.RandomUUID}}?edit=1' class='fr'>New page</a>{{end}}</span>
+    <h1>{{.NumResults}} results for '{{.Search}}'</h1>
+    <p>Currently in the <strong>{{.Domain}}</strong> domain.</p>
+
+    <div class="list">
+			{{range .Files}}
+			<div>
+				<div>
+						<a href="/{{$.Domain}}/{{.ID}}">{{.Slug}}</a>
+				</div>
+				<div>
+						{{ if $.RWTxtConfig.OrderByCreated}}{{.CreatedDate $.UTCOffset}}{{else}}{{.ModifiedDate $.UTCOffset}}{{end}}
+                </div>
+                {{with .DataHTML}}<blockquote><em>{{.}}</em></blockquote>{{end}}
+			</div>
+			{{end}}
+	</div>
+</main>
+{{template "footer" .}}

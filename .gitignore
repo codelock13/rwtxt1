@@ -1,0 +1,24 @@
+# Binaries for programs and plugins
+rwtxt
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, build with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Intermediate build artifacts
+/*.zip
+/assets
+/bindata.go
+/go.sum
+/vendor
+
+# RWTxt databases
+*db
+*.db.sql.gz
